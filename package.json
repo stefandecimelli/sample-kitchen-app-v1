@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm:ui\" \"npm:api\"",
     "ui": "vite",
     "api": "bun --watch ./api/",
-    "build": "concurrently \"tsc && vite build --outDir ./dist/ui\" \"bun build ./api/ --outfile=./dist/api/bundle.js\"",
+    "build": "concurrently \"tsc && vite build --outDir ./dist/ui\" \"bun build ./api/ --outfile=./dist/api/bundle.js --minify --target=node\"",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
