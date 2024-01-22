@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react'
 import styles from './App.module.css';
-import { getMessage } from '../apiClient/get';
+import { getAllItems } from '../lib/api/get';
+import { Item } from '../lib/types/Item';
 
 function App() {
-  const [message, setMessage] = useState("Loading...");
+  const [items, setItems] = useState<Item[]>([]);
 
   useEffect(() => {
-    getMessage().then(message => setMessage(message));
-  }, [message]);
-
+    getAllItems().then(itemsResponse => setItems(itemsResponse));
+  }, [setItems]);
+  
   return (
     <>
-      <p className={styles.message}>{message}</p>
+      {items.map(item => {
+        return <p className={styles.item}>{item.name}</p>
+      })}
     </>
   )
 }
