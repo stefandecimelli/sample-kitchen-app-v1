@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import styles from './App.module.css';
 import { getAllItems } from '../lib/api/get';
 import { Item } from '../lib/types/Item';
+import Shell from './shell/Shell';
 
 function App() {
   const [items, setItems] = useState<Item[]>([]);
@@ -11,11 +12,11 @@ function App() {
   }, [setItems]);
 
   return (
-    <>
-      {items.map(({ name }) => {
-        return <p key={name} className={styles.item}>{name}</p>
-      })}
-    </>
+    <main className={styles.main}>
+      <Shell>
+          {JSON.stringify(items)}
+      </Shell>
+    </main>
   )
 }
 

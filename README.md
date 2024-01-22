@@ -8,7 +8,7 @@ This would never be the best approach in most cases, but when deveoping enterpri
 
 ## Development
 
-Before you start, ensure you have bun installed. Go [here](https://bun.sh/docs/installation) to do so. 
+Before you start, ensure you have bun installed. It's super simple, go [here](https://bun.sh/docs/installation) to do so. 
 
 To start, just clone this repo and run
 ```
@@ -16,6 +16,10 @@ bun i
 ```
 And then to run the app run
 ```
-bu nrun dev
+bun run dev
 ```
-So simple.
+So simple. To transpile into vanilla, run
+```
+bun run build
+```
+And this will build the `./dist/ui` and `./dist/api` directories. 
