@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = "file:./app.db"
+  url      = "file:../../app.db"
 }
 
 model FoodItem {
@@ -30,6 +30,7 @@ model FoodItemStock {
 
 model Fridge {
   id            Int             @id @default(autoincrement())
+  nickname      String          @unique
   FoodItemStock FoodItemStock[]
 }
 
@@ -44,6 +45,7 @@ model FoodItemRequirement {
 
 model Recipe {
   id           Int                   @id @default(autoincrement())
+  title        String                @unique
   ingredients  FoodItemRequirement[]
   instructions String
 }

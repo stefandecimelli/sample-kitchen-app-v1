@@ -9,11 +9,11 @@ function App() {
   useEffect(() => {
     getAllItems().then(itemsResponse => setItems(itemsResponse));
   }, [setItems]);
-  
+
   return (
     <>
-      {items.map(item => {
-        return <p className={styles.item}>{item.name}</p>
+      {items.map(({ name }) => {
+        return <p key={name} className={styles.item}>{name}</p>
       })}
     </>
   )
