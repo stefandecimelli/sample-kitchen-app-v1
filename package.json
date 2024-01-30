@@ -1,29 +1,28 @@
 {
   "name": "sample-kitchen-app-v1",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
-
     "dev": "concurrently \"bun:ui\" \"bun:api\"",
     "ui": "vite",
     "api": "bun --watch ./api/",
-
     "build": "concurrently \"bun:build-ui\" \"bun:build-api\"",
     "build-ui": "tsc && vite build --outDir ./dist/ui",
-    "build-api": "bun build ./api/ --outfile=./dist/api/bundle.js --minify --target=node",
-
+    "build-api": "bun build ./api/ --outfile=./dist/api/bundle.js --minify --target=bun",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swagger-ui-express": "^5.0.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/react": "^18.2.43",
     "@types/react-dom": "^18.2.17",
+    "@types/swagger-jsdoc": "^6.0.4",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "@typescript-eslint/parser": "^6.14.0",
     "@vitejs/plugin-react": "^4.2.1",
@@ -31,6 +30,7 @@
     "eslint": "^8.55.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "swagger-jsdoc": "^6.2.8",
     "typescript": "^5.2.2",
     "vite": "^5.0.8"
   },

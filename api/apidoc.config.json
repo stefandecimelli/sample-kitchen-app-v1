@@ -1,0 +1,28 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Sample Kitchen App V1 API",
+		"description": "Api for the Sample Kitchen App",
+		"version": "1.0.0"
+	},
+	"components": {
+		"schemas": {
+			"FoodItem": {
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"name": {
+						"type": "string"
+					},
+					"unit": {
+						"type": "string"
+					},
+					"kcal": {
+						"type": "integer"
+					}
+				}
+			}
+		}
+	}
+}

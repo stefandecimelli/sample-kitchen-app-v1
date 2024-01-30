@@ -1,17 +1,21 @@
 import express from "express";
 import cors from "cors";
 import itemsApi from "./routes/items";
-import openapi from "swagger-ui-express";
-import apidoc from "./openapi.json";
+import fridgesApi from "./routes/fridges";
+import recipesApi from "./routes/recipes";
+import apidocBuilder from "swagger-jsdoc";
+import apidoc from "swagger-ui-express";
+import apidocConfig from "./apidoc.config.json"
 
+const apidocSpec = apidocBuilder({ definition: apidocConfig, apis: ["api/routes/*.ts"] });
 const port = process.env.SERVER_PORT || 8080;
 const app = express();
 
 app.use(express.json())
 app.use(cors())
 app.use(itemsApi);
-app.use("/api/explorer", openapi.serve, openapi.setup(apidoc))
-
-app.listen(port, () => {
-	console.log(`API listening on http://localhost:${port}/`)
-});
+app.use(fridgesApi);
+app.use(recipesApi);
+app.get("/api", (_, res) => res.json(apidocSpec))
+app.use("/api/explorer", apidoc.serve, apidoc.setup(apidocSpec))
+app.listen(port);
