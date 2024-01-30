@@ -31,7 +31,8 @@
 								"type": "string"
 							},
 							"unit": {
-								"type": "string"
+								"type": ["string"],
+								"nullable": true
 							},
 							"kcal": {
 								"type": "integer"
