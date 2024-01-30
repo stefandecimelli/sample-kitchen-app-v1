@@ -10,6 +10,7 @@ const app = express.Router();
  * @openapi
  * /api/items:
  *    get:
+ *      summary: Retrieve a list of all food items available
  *      tags:
  *       - items
  *      responses:
@@ -73,6 +74,7 @@ app.get("/api/item/:id", async (req, res) => {
  * @openapi
  * /api/item:
  *   post:
+ *     summary: Create a new food item
  *     tags:
  *      - items
  *     requestBody:
@@ -113,6 +115,7 @@ app.post("/api/item", async (req, res) => {
  * @openapi
  * /api/item/{id}:
  *   delete:
+ *     summary: Delete a food item
  *     tags:
  *      - items
  *     parameters:
